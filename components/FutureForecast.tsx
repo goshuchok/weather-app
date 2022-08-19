@@ -3,7 +3,7 @@ import { Text, View } from 'react-native';
 import FutureForecastItem from './FutureForecastItem';
 
 type FutureForecastProps = {
-  data: any;
+  data: [];
 };
 
 const FutureForecast: React.FC<FutureForecastProps> = ({ data }) => {

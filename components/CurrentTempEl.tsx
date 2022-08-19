@@ -3,7 +3,7 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 import moment from 'moment-timezone';
 
 type CurrentTempElProps = {
-  data: {
+  data?: {
     weather: {};
     dt: number;
     temp: {

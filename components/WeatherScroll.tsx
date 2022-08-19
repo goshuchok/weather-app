@@ -4,7 +4,7 @@ import CurrentTempEl from './CurrentTempEl';
 import FutureForecast from './FutureForecast';
 
 type WeatherScrollProps = {
-  weatherData: any;
+  weatherData: [];
 };
 
 const WeatherScroll: React.FC<WeatherScrollProps> = ({ weatherData }) => {

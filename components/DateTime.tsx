@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import WeatherItem from './WeatherItem';
 import moment from 'moment-timezone';
+import { useDispatch, useSelector } from 'react-redux';
 
 const days = [
   'Sunday',
@@ -30,10 +31,10 @@ const months = [
 type DateTimeProps = {
   current: {
     temp?: number;
-    humidity?: any;
-    pressure?: any;
-    sunset: any;
-    sunrise: any;
+    humidity?: string;
+    pressure?: string;
+    sunset: string;
+    sunrise: string;
   };
   timezone: string;
   lat: string | number;
@@ -43,6 +44,12 @@ type DateTimeProps = {
 const DateTime: React.FC<DateTimeProps> = ({ current, timezone, lat, lon }) => {
   const [date, setDate] = useState<string>('');
   const [time, setTime] = useState<string>('');
+  const store = useSelector((store) => store);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({ type: 'LOAD_DATA' });
+  }, []);
 
   useEffect(() => {
     setInterval(() => {
